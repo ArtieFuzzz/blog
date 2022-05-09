@@ -6,7 +6,7 @@ createdAt: '2022-05-09T00:34:16.231Z'
 
 Jaeger has been nerfed over the past few years because of the controversies surrounding him saying that "Jaeger is too OP"
 
-Some notable nerfs
+Some notable nerfs:
 
 - Loosing his ACOG optic on his 416-C
 - ADS has a 10 second cooldown (But has infinite charges)
