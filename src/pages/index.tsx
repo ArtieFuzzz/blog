@@ -2,13 +2,7 @@
 import dayjs from 'dayjs'
 import slugify from 'slugify'
 import ProfilePicture from '../../public/profilepic.png'
-import { getPages } from '../lib/md'
-
-interface PageProp {
-  content: string
-  file: string
-  data: Record<string, string>
-}
+import { getPages, PageData } from '../lib/md'
 
 export const getStaticProps = async () => {
   const pages = await getPages()
@@ -26,7 +20,7 @@ export const getStaticProps = async () => {
   }
 }
 
-const Home = ({ documents }: { documents: PageProp[] }) => {
+const Home = ({ documents }: { documents: PageData[] }) => {
   return (
     <>
       <div className='justify-center text-center mx-auto items-center flex mt-10 flex-col py-2'>

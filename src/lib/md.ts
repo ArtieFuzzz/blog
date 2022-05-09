@@ -4,6 +4,12 @@ import { marked } from 'marked'
 import { join } from 'path'
 import { getHighlighter, Highlighter } from 'shiki'
 
+export interface PageData {
+  data: Record<string, any>
+  file?: string
+  content: string
+}
+
 let highlighter!: Highlighter
 
 export const getPages = async () => {
@@ -69,5 +75,5 @@ export const getPage = async (page: string) => {
     gfm: true
   })
 
-  return { data, content: mdContent}
+  return { data, content: mdContent }
 }

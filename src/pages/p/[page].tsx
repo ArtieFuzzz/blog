@@ -32,8 +32,7 @@ export const getStaticPaths = async () => {
       params: {
         page: slugify(p.data.title.toLowerCase()),
       },
-    })),
-    fallback: 'blocking',
+    }))
   }
 }
 
