@@ -32,7 +32,8 @@ export const getStaticPaths = async () => {
       params: {
         page: slugify(p.data.title.toLowerCase()),
       },
-    }))
+    })),
+    fallback: 'blocking'
   }
 }
 
@@ -42,7 +43,7 @@ const Page = ({ document }: { document: any }) => {
       <>
         <div className='justify-center items-center flex middle text-center'>
           <div className='lg:grid lg:text-center lg:relative mb-5 text-center gap-4'>
-            <h1>This page {`doesn't`} exist!</h1>
+            <h1 className='font-bold text-red-400'>This page {`doesn't`} exist!</h1>
             <div className='flex items-start mx-auto space-x-3'>
               <Link href='/'>
                 <a className='btn'> Home </a>
