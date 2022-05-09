@@ -5,6 +5,8 @@ import slugify from 'slugify'
 import ProfilePicture from '../../public/profilepic.png'
 import { getPages, PageData } from '../lib/md'
 
+const isProd = process.env.NODE_ENV === 'production'
+
 export const getStaticProps = async () => {
   const pages = await getPages()
 
@@ -48,7 +50,15 @@ const Home = ({ documents }: { documents: PageData[] }) => {
               >
                 <div className='flex flex-col justify-center p-1 lg:p-2'>
                   <h2 className='text-red-400 font-bold text-lg lg:text-2xl'>
-                    <Link href={`/p/${slugify(d.data.title).toLowerCase()}`}>
+                    <Link
+                      href={
+                        isProd
+                          ? `/blog/p/${slugify(
+                              d.data.title
+                            ).toLocaleLowerCase()}`
+                          : `/p/${slugify(d.data.title).toLowerCase()}`
+                      }
+                    >
                       <a className='hover'>{d.data.title}</a>
                     </Link>
                   </h2>
