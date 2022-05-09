@@ -33,7 +33,7 @@ export const getStaticPaths = async () => {
         page: slugify(p.data.title.toLowerCase()),
       },
     })),
-    fallback: 'blocking'
+    fallback: 'blocking',
   }
 }
 
@@ -41,9 +41,29 @@ const Page = ({ document }: { document: any }) => {
   if (!document) {
     return (
       <>
+        <nav className='flex items-center justify-between flex-wrap p-3'>
+          <div className='flex items-center flex-shrink-0 text-white mr-5 px-1'>
+            <span className='font-semibold text-xl tracking-tight'>
+              Artie{"'"}s Blog
+            </span>
+          </div>
+          <div
+            className='w-full block flex-grow lg:flex lg:items-center lg:w-auto'
+            style={{ marginTop: '0.30rem' }}
+          >
+            <div className='text-sm lg:flex-grow'>
+              <Link href='/'>
+                <a className='navbar-item'>Home</a>
+              </Link>
+            </div>
+          </div>
+        </nav>
+
         <div className='justify-center items-center flex middle text-center'>
           <div className='lg:grid lg:text-center lg:relative mb-5 text-center gap-4'>
-            <h1 className='font-bold text-red-400'>This page {`doesn't`} exist!</h1>
+            <h1 className='font-bold text-red-400'>
+              This page {`doesn't`} exist!
+            </h1>
             <div className='flex items-start mx-auto space-x-3'>
               <Link href='/'>
                 <a className='btn'> Home </a>

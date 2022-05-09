@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import dayjs from 'dayjs'
+import Link from 'next/link'
 import slugify from 'slugify'
 import ProfilePicture from '../../public/profilepic.png'
 import { getPages, PageData } from '../lib/md'
@@ -47,12 +48,9 @@ const Home = ({ documents }: { documents: PageData[] }) => {
               >
                 <div className='flex flex-col justify-center p-1 lg:p-2'>
                   <h2 className='text-red-400 font-bold text-lg lg:text-2xl'>
-                    <a
-                      href={`/p/${slugify(d.data.title).toLowerCase()}`}
-                      className='hover'
-                    >
-                      {d.data.title}
-                    </a>
+                    <Link href={`/p/${slugify(d.data.title).toLowerCase()}`}>
+                      <a className='hover'>{d.data.title}</a>
+                    </Link>
                   </h2>
                 </div>
 
